@@ -1,6 +1,3 @@
-using System;
-
-
 public class Job
 
 {
@@ -8,6 +5,8 @@ public class Job
     internal string _jobTitle;
     internal int _startYear;
     internal int _endYear;
+    internal string Main;
+    
 
 }
 
