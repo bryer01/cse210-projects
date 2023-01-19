@@ -5,7 +5,7 @@ public class Job
     internal string _jobTitle;
     internal int _startYear;
     internal int _endYear;
-    internal string Main;
+   
     
 
 }
@@ -13,7 +13,7 @@ public class Job
 public class Resume
 {
     private string _name;
-    private List<Job> _jobs;
+    private List<Job> _jobs = new List<Job>();
 
     static void Main(string[] args)
     {
