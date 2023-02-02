@@ -5,6 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
+
         bool loop = true;
         while (loop == true)
         {
@@ -17,21 +18,15 @@ class Program
             Console.WriteLine("What would you like to do? ");
 
             string userinput = Console.ReadLine() ?? "";
-            {
-                Random random = new Random();
-                int randomIndex = random.Next(0, prompts.Count);
 
-                string randomPrompt = prompts[randomIndex];
 
-                Console.WriteLine("Random Prompt: " + randomPrompt);
 
-                List<JournalEntry> journal = new List<JournalEntry>();
 
-            }
 
             if (userinput == "1")
             {
-                Console.WriteLine("You have selected number 1");
+                Entry entry = new Entry();
+                entry.Add();
             }
             else if (userinput == "2")
             {
@@ -51,14 +46,7 @@ class Program
             }
         }
     }
-    List<string> prompts = new List<string>()
-        {
-        "Who was the most interesting person I interacted with today?",
-        "What was the best part of my day?",
-        "How did I see the hand of the Lord in my life today?",
-        "What was the strongest emotion I felt today?",
-        "If I had one thing I could do over today, what would it be?"
-        };
+
 
 
 
@@ -100,31 +88,6 @@ class Program
 
 
         }
-        public class AddEntry
-        {
-            private object convert;
-
-            public List<Entry> Entries { get; set; }
-            public string Prompt { get; private set; }
-            public string Response { get; private set; }
-            public DateTime Date { get; private set; }
-
-            public AddEntry()
-            {
-                Entries = new List<Entry>();
-            }
-
-            public void Add(string prompt, string response)
-            {
-                AddEntry entry = new AddEntry();
-                entry.Prompt = prompt;
-                entry.Response = response;
-                entry.Date = DateTime.Now;
-            }
-
-        }
-
-        public class Entry { }
 
     }
 }
