@@ -15,6 +15,18 @@ class Program
         Reference _ref5 = new Reference("Proverbs", 3, 5 - 6);
         Scripture scripture4 = new Scripture(_ref5, "Trust in the Lord with all thine heart; and lean not unto thine own understanding,\n In all thy ways acknowledge him, and he sall direct thy paths.\n");
 
+        while (true)
+        {
+            Console.Write("Enter a command (or 'quit' to exit): ");
+            string input = Console.ReadLine();
+
+            if (input == "quit")
+            {
+                break;
+            }
+
+            // Handle the input command here
+        }
     }
 
 
