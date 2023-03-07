@@ -1,6 +1,6 @@
 using System;
 
-class Menu
+class Menu : Activity
 {
     static void Main(string[] args)
     {
@@ -31,6 +31,11 @@ class Menu
         {
             Console.WriteLine("Invalid activity number.");
         }
+    }
+
+    public override void Run()
+    {
+        throw new NotImplementedException();
     }
 }
 

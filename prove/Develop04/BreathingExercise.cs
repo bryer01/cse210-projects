@@ -1,8 +1,11 @@
-using System;
-
-class BreathingExercise
+class BreathingExercise : Activity
 {
     public BreathingExercise()
+    {
+        StartMessage = "Welcome to the Breathing Exercise";
+    }
+
+    public override void Run()
     {
         Console.WriteLine("You have chosen 1 \n");
         Console.WriteLine("Welcome to the Breathing Exercise!");
@@ -38,10 +41,5 @@ class BreathingExercise
         }
 
         Console.WriteLine("Great job! You've completed the Breathing Exercise.");
-    }
-
-    public void Run()
-    {
-
     }
 }

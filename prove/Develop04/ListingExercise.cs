@@ -1,8 +1,8 @@
-public class ListingExercise
+class ListingExercise : Activity
 {
     private int count = 0;
 
-    public void Run()
+    public override void Run()
     {
         Console.WriteLine("Welcome to the Listing Exercise!");
 
@@ -19,9 +19,9 @@ public class ListingExercise
         Console.WriteLine("Time's up!");
 
         Console.Write("How many items did you list? ");
+        count = int.Parse(Console.ReadLine());
 
         Console.WriteLine($"You listed {count} items.");
-
 
         if (count <= 5)
         {
@@ -40,11 +40,6 @@ public class ListingExercise
             Console.WriteLine("Amazing! You're a master brainstormer.");
         }
 
-        {
-            Console.WriteLine("Congratulations, you've completed the Listing Exercise!");
-        }
-
-
+        Console.WriteLine("Congratulations, you've completed the Listing Exercise!");
     }
 }
-
