@@ -1,10 +1,9 @@
 using System;
 
-class Menu : Activity
+static class Menu
 {
     static void Main(string[] args)
     {
-
         Console.WriteLine("Choose an Activity: ");
         Console.WriteLine("1. Breathing Exercise");
         Console.WriteLine("2. Reflection Exercise");
@@ -12,30 +11,28 @@ class Menu : Activity
 
         int activityNumber = int.Parse(Console.ReadLine());
 
-        if (activityNumber == 1)
-        {
-            BreathingExercise exercise = new BreathingExercise();
-            exercise.Run();
-        }
-        else if (activityNumber == 2)
-        {
-            ReflectionExercise exercise = new ReflectionExercise();
-            exercise.Run();
-        }
-        else if (activityNumber == 3)
-        {
-            ListingExercise exercise = new ListingExercise();
-            exercise.Run();
-        }
-        else
-        {
-            Console.WriteLine("Invalid activity number.");
-        }
-    }
+        Activity? exercise = null;
 
-    public override void Run()
-    {
-        throw new NotImplementedException();
+        switch (activityNumber)
+        {
+            case 1:
+                exercise = new BreathingExercise();
+                break;
+            case 2:
+                exercise = new ReflectionExercise();
+                break;
+            case 3:
+                exercise = new ListingExercise();
+                break;
+            default:
+                Console.WriteLine("Invalid activity number.");
+                break;
+        }
+
+        if (exercise != null)
+        {
+            exercise.Run();
+        }
     }
 }
 

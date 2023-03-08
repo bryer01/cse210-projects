@@ -2,9 +2,24 @@ using System;
 
 abstract class Activity
 {
-    protected string StartMessage;
-    protected string StartDuration;
-    protected string EndMessage;
+    protected abstract string Name { get; }
 
-    public abstract void Run();
+    public void Run()
+    {
+        Console.WriteLine(GetWelcomeMessage());
+        RunInternal();
+        Console.WriteLine(GetEndMessage());
+    }
+
+    protected abstract void RunInternal();
+
+    private string GetWelcomeMessage()
+    {
+        return $"Welcome to the {Name}.";
+    }
+
+    private string GetEndMessage()
+    {
+        return $"Great job! You've completed the {Name}.";
+    }
 }
