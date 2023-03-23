@@ -1,26 +1,32 @@
-// Abstract Video class
-public abstract class Video
+public class Video
 {
-    public string title { get; set; }
-    public string author { get; set; }
-    public int length { get; set; }
-    public List<Comment> comments { get; set; }
+    private string title;
+    private string author;
+    private int length;
+    private List<Comment> comments;
 
-    // Constructor
     public Video(string title, string author, int length)
     {
         this.title = title;
         this.author = author;
         this.length = length;
-        comments = new List<Comment>();
+        this.comments = new List<Comment>();
     }
 
-    // Abstract method for displaying video information
-    public abstract void DisplayInfo();
-
-    // Method to add a comment to the video
     public void AddComment(Comment comment)
     {
         comments.Add(comment);
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine("Title: " + title);
+        Console.WriteLine("Author: " + author);
+        Console.WriteLine("Length: " + length + " seconds");
+        Console.WriteLine("Comments:");
+        foreach (Comment comment in comments)
+        {
+            Console.WriteLine(comment.GetAuthor() + ": " + comment.GetText());
+        }
     }
 }
