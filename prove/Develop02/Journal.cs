@@ -1,93 +1,53 @@
-using System.IO;
-using System;
-
-class Program
+class Journal
 {
-    static void Main(string[] args)
+    public List<string> prompts = new List<string>() {
+        "What did you do today?",
+        "What are you grateful for today?",
+        "What are some challenges you faced today?"
+    };
+    public List<Entry> entries = new List<Entry>();
+
+    public void add_entry(Entry entry)
     {
+        entries.Add(entry);
+    }
 
-        bool loop = true;
-        while (loop == true)
+    public void display_entries()
+    {
+        foreach (Entry entry in entries)
         {
-            Console.WriteLine("Please choose one of the following choices: ");
-            Console.WriteLine("1. Write");
-            Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
-            Console.WriteLine("What would you like to do? ");
-
-            string userinput = Console.ReadLine() ?? "";
-
-
-
-
-
-            if (userinput == "1")
-            {
-                Entry entry = new Entry();
-                entry.Add();
-            }
-            else if (userinput == "2")
-            {
-                Console.WriteLine("You have selected number 2");
-            }
-            else if (userinput == "3")
-            {
-                Console.WriteLine("You have selected number 3");
-            }
-            else if (userinput == "4")
-            {
-                Console.WriteLine("You have selected number 4");
-            }
-            else
-            {
-                loop = false;
-            }
+            Console.WriteLine("{0} [{1}]: {2}", entry.prompt, entry.date, entry.response);
         }
     }
 
-
-
-
-
-
-
-    class Journal
-
+    public void save_to_file(string filename)
     {
-        public void Save(string fileName)
+        using (StreamWriter sw = new StreamWriter(filename))
         {
-
-            using (StreamWriter outputFile = new StreamWriter(fileName))
+            foreach (Entry entry in entries)
             {
-                // You can add text to the file with the WriteLine method
-                outputFile.WriteLine("This will be the first line in the file.");
-
-
+                sw.WriteLine("{0}|{1}|{2}", entry.prompt, entry.date, entry.response);
             }
         }
+        Console.WriteLine("Journal saved to file: {0}", filename);
+    }
 
-        public void Load(string fileName)
+    public void load_from_file(string filename)
+    {
+        entries.Clear();
+        using (StreamReader sr = new StreamReader(filename))
         {
-
-            string[] lines = System.IO.File.ReadAllLines(fileName);
-
-            foreach (string line in lines)
+            string line;
+            while ((line = sr.ReadLine()) != null)
             {
-                string[] parts = line.Split(",");
-
-                string firstName = parts[0];
-                string lastName = parts[1];
+                string[] parts = line.Split('|');
+                string prompt = parts[0];
+                string date = parts[1];
+                string response = parts[2];
+                Entry entry = new Entry(prompt, response, date);
+                entries.Add(entry);
             }
         }
-        public void Display()
-        {
-            DateTime theCurrentTime = DateTime.Now;
-            Console.ReadLine();
-
-
-        }
-
+        Console.WriteLine("Journal loaded from file: {0}", filename);
     }
 }
