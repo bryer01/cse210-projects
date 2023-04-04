@@ -27,8 +27,7 @@ public class Program
                 Console.WriteLine("Speaker: John Brown " + l.Speaker);
                 Console.WriteLine("Capacity: 60 " + l.Capacity);
                 DateTime myDateTime2 = new DateTime(2023, 03, 22, 14, 30, 0);
-                Console.WriteLine("Date: " + e.Date.ToString("MM/dd/yyyy"));
-                Console.WriteLine("Time: " + e.Time.ToString("hh:mm tt"));
+
 
             }
             else if (e is Reception)
@@ -37,8 +36,7 @@ public class Program
                 Console.WriteLine("Title: Reception" + e.Title);
                 Console.WriteLine("RSVP: If you are unable to join us please respond promptly. " + r.RSVP);
                 DateTime myDateTime3 = new DateTime(2023, 03, 22, 14, 30, 0);
-                Console.WriteLine("Date: " + e.Date.ToString("MM/dd/yyyy"));
-                Console.WriteLine("Time: " + e.Time.ToString("hh:mm tt"));
+
 
             }
             else if (e is OutdoorGathering)
@@ -47,8 +45,7 @@ public class Program
                 Console.WriteLine("Title: Outdoor Gathering" + e.Title);
                 Console.WriteLine("Weather: Sunny, 60 " + o.Weather);
                 DateTime myDateTime4 = new DateTime(2023, 03, 22, 14, 30, 0);
-                Console.WriteLine("Date: " + e.Date.ToString("MM/dd/yyyy"));
-                Console.WriteLine("Time: " + e.Time.ToString("hh:mm tt"));
+
 
             }
 
